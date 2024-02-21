@@ -15,7 +15,7 @@ class LitracyPage extends StatelessWidget {
       
           Container(
             height: 200,
-            width:350,
+            width:3580,
             decoration: BoxDecoration(
               color: Colors.red
             ),

@@ -1,0 +1,13 @@
+'Health insurance is a contract between a 
+company and a consumer. The company agrees to pay all or some of the insured person\'s healthcare costs in return 
+
+for payment of a monthly premium.\n\nThe contract is usually a one-year agreement, during which you are responsible for 
+paying specific expenses related to illness, injury, pregnancy, or preventative care.\n\nTypes of Health Insurance\nHealth insurance can 
+
+be tricky to navigate. In the U.S., managed care insurance plans require policyholders to 
+
+get their care from a network of designated healthcare providers. If patients seek care outside the network, they must pay a higher percentage of the cost. The insurer may even refuse payment outright for services obtained out of network.\
+n\nMany managed care plans—for example, health maintenance organizations (HMOs) and point-of-service plans (POS)—require patients to choose a primary care physician who oversees the patient\'s care, makes 
+recommendations about treatment, and provides referrals for medical specialists.\n\nPreferred-provider organizations (PPOs), by contrast, don\'t require referrals but do set lower rates for using in-network practitioners 
+and services.\n\nInsurance companies may deny coverage for certain services that were obtained without preauthorization. They may refuse payment for name-brand drugs if a generic 
+version or comparable medication is available at a lower cost. Check an insurance company\'s rules before your buy their insurance

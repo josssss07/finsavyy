@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:managment/Screens/home.dart';
 import 'package:managment/Screens/statistics.dart';
+import 'package:managment/Screens/stockList.dart';
 import 'package:managment/widgets/bottomnavigationbar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -21,15 +22,19 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: Bottom(),
-      home: LitracyPage()
+      home: StockList(),
     );
   }
 }

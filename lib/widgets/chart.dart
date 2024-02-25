@@ -3,6 +3,7 @@ import 'package:managment/data/model/add_date.dart';
 import 'package:managment/data/utlity.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+// ignore: must_be_immutable
 class Chart extends StatefulWidget {
   int indexx;
   Chart({Key? key, required this.indexx}) : super(key: key);

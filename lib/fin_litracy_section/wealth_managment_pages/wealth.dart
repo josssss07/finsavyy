@@ -1,10 +1,19 @@
+/**
+ * REDUNDANT
+ * USED IN PREVIOUS VERSION OF APP
+ * 
+ */
+
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:managment/fin_litracy_section/wealth_managment_pages/balanced_funds.dart';
-import 'package:managment/fin_litracy_section/wealth_managment_pages/bonds.dart';
-import 'package:managment/fin_litracy_section/wealth_managment_pages/equity.dart';
-import 'package:managment/fin_litracy_section/wealth_managment_pages/index_funds.dart';
-import 'package:managment/fin_litracy_section/wealth_managment_pages/mutual_funds.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/balanced_funds.dart';
+//import 'package:managment/fin_litracy_section/risk_managment_pages/balanced_funds.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/bonds.dart';
+import 'package:managment/fin_litracy_section/equity/equity.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/index_funds.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/mutual_funds.dart';
 
 class Wealth extends StatelessWidget {
   const Wealth({super.key});
@@ -30,7 +39,7 @@ class Wealth extends StatelessWidget {
             ListTile(
               onTap: (){
                   Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const BalancedFunds() 
+                  MaterialPageRoute(builder: (context) => BalancedFunds() 
                   )
                 );
               },

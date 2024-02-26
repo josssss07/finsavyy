@@ -76,53 +76,5 @@ class LitracyPage extends StatelessWidget {
         ],
       ),
     );
-          // Padding(
-          //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //     children: [
-          //       Container(
-          //         height: 66,
-          //         width: MediaQuery.of(context).size.width/3.1,
-          //         decoration: BoxDecoration(
-          //           color: Colors.red
-          //         ),
-          //         child: Text('test')
-          //       ),
-          //       Container(
-          //         height: 66,
-          //         width: MediaQuery.of(context).size.width/3.1,
-          //         decoration: BoxDecoration(
-          //           color: Colors.red
-          //         ),
-          //         child: Text('test')
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // Padding(
-          //   padding: const EdgeInsets.fromLTRB(5, 6, 5, 2),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //     children: [
-          //       Container(
-          //         height: 66,
-          //         width: MediaQuery.of(context).size.width/3.1,
-          //         decoration: BoxDecoration(
-          //           color: Colors.red
-          //         ),
-          //         child: Text('test')
-          //       ),
-          //       Container(
-          //         height: 66,
-          //         width: MediaQuery.of(context).size.width/3.1,
-          //         decoration: BoxDecoration(
-          //           color: Colors.red
-          //         ),
-          //         child: Text('test')
-          //       ),
-          //     ],
-          //   ),
-          // )
   }
 }

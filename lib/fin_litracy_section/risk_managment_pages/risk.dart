@@ -1,9 +1,16 @@
+/**
+ * REDUNDANT
+ * USED IN PREVIOUS VERSION OF APP
+ * 
+ */
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:managment/fin_litracy_section/risk_managment_pages/auto_insurance.dart';
-import 'package:managment/fin_litracy_section/risk_managment_pages/health_insurance.dart';
-import 'package:managment/fin_litracy_section/risk_managment_pages/home_insurance.dart';
-import 'package:managment/fin_litracy_section/risk_managment_pages/life_insurance.dart';
+import 'package:managment/fin_litracy_section/insurance/auto_insurance.dart';
+import 'package:managment/fin_litracy_section/insurance/health_insurance.dart';
+import 'package:managment/fin_litracy_section/insurance/home_insurance.dart';
+import 'package:managment/fin_litracy_section/insurance/life_insurance.dart';
 
 class Risk extends StatelessWidget {
   const Risk({super.key});

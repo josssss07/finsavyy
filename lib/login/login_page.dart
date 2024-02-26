@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:managment/login/user_data.dart/user.dart';
+import 'package:managment/widgets/bottomnavigationbar.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -9,7 +10,7 @@ class LoginPage extends StatelessWidget {
   final _myBox = Hive.box('UsernameBox');
   //write to hive box(username)
   void addData(String userName){
-    _myBox.put(1, 'Joshua');
+    _myBox.put(1, userName);
     print(_myBox.get(1));
   }
 
@@ -48,6 +49,7 @@ class LoginPage extends StatelessWidget {
                   onPressed:(){
                     String user = username.text;
                     addData(user);
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (_)=> Bottom()));
                   } ,
                   child: Text('Begin Your Journey to Financial Freedom Now!')
                 ), 

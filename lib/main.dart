@@ -38,8 +38,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: LoginPage(),
-      home: Bottom(),
+      home: LoginPage(),
+      //home: Bottom(),
     );
   }
 }

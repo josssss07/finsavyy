@@ -11,6 +11,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  late String userName;
+  //username hive box
+  final _myBox = Hive.box('UsernameBox');
+  String setUserName(){
+    String userName = _myBox.get(1);
+    return userName;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    String username = setUserName();
+    userName = username;
+    print(userName);
+  }
+
+  //user data hive box
   var history;
   final box = Hive.box<Add_data>('data');
   final List<String> day = [
@@ -154,7 +172,7 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Welcome Back !',
+                          'Welcome Back  $userName! ',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,

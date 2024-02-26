@@ -15,6 +15,17 @@ class LineChartWithZoomAndInteractivity extends StatefulWidget {
 
 class _LineChartWithZoomAndInteractivityState
     extends State<LineChartWithZoomAndInteractivity> {
+  List<CartesianSeries<SalesData, String>> getChartSeries() {
+    return [
+      SplineSeries<SalesData, String>(
+        color: const Color(0xFF3C7867),
+        dataSource: widget.salesData,
+        xValueMapper: (SalesData sales, _) => sales.year,
+        yValueMapper: (SalesData sales, _) => sales.sales,
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -54,14 +65,7 @@ class _LineChartWithZoomAndInteractivityState
                   fontWeight:
                       FontWeight.bold), // Set the font size for the y-axis
             ),
-            series: <ChartSeries>[
-              SplineSeries<SalesData, String>(
-                color: const Color(0xFF3C7867),
-                dataSource: widget.salesData,
-                xValueMapper: (SalesData sales, _) => sales.year,
-                yValueMapper: (SalesData sales, _) => sales.sales,
-              ),
-            ],
+            series: getChartSeries(),
           ),
         ),
       ),

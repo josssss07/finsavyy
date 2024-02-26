@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:managment/Screens/add.dart';
 import 'package:managment/Screens/home.dart';
 import 'package:managment/Screens/statistics.dart';
+import 'package:managment/Screens/stockList.dart';
 import 'package:managment/fin_litracy_section/litracy_home.dart';
 
 class Bottom extends StatefulWidget {
@@ -13,7 +14,7 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   int index_color = 0;
-  List Screen = [Home(), Statistics(), LitracyPage(), Statistics()];
+  List Screen = [Home(), Statistics(), LitracyPage(), StockList()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

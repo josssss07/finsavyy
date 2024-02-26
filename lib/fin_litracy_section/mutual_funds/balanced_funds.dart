@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BalancedFunds extends StatelessWidget {
   const BalancedFunds({super.key});
@@ -26,7 +27,16 @@ class BalancedFunds extends StatelessWidget {
                     fontSize: 22,
                   ),
                 ),
-              )
+              ),
+               TextButton(onPressed: ()async{
+                const url = 'https://www.investopedia.com/terms/b/balancedfund.asp#:~:text=A%20balanced%20fund%20is%20a,%25%20stocks%20and%2030%25%20bonds.';
+                if(await canLaunchUrl(url as Uri)){
+                  await launchUrl(url as Uri);
+                }else{
+                  throw 'Could not launch site';
+                }
+              },
+              child: Text('Click here to learn more')),
             ],
           ),
         ),

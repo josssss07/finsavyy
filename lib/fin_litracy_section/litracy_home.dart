@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:managment/fin_litracy_section/equity/equity.dart';
+import 'package:managment/fin_litracy_section/insurance/insurance_page_router.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/mutual_funds.dart';
+import 'package:managment/fin_litracy_section/mutual_funds/mutual_funds_nav_page.dart';
 import 'package:managment/fin_litracy_section/risk_managment_pages/risk.dart';
 import 'package:managment/fin_litracy_section/wealth_managment_pages/wealth.dart';
 
@@ -9,12 +12,12 @@ class LitracyPage extends StatelessWidget {
 
   void wealthPages(context){
     Navigator.push(context,
-      MaterialPageRoute(builder: (context) => const Wealth()   
+      MaterialPageRoute(builder: (context) => const InsurancePageRoutes()   
       )
     );
   }
   void riskPages(context){
-    Navigator.push(context, MaterialPageRoute(builder: (_)=> Risk()));
+    Navigator.push(context, MaterialPageRoute(builder: (_)=> MutualFundsRouter()));
   }
 
   @override

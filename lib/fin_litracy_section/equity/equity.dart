@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Equity extends StatelessWidget {
   const Equity({super.key});
@@ -29,7 +30,16 @@ class Equity extends StatelessWidget {
                     fontSize: 22,
                   ),
                 ),
-              )
+              ),
+              TextButton(onPressed: ()async{
+                const url = 'https://www.investopedia.com/ask/answers/020415/what-difference-between-companys-equity-and-its-shareholders-equity.asp#:~:text=Key%20Takeaways-,Equity%20typically%20refers%20to%20the%20ownership%20of%20a%20public%20company,on%20the%20company\'s%20balance%20sheet.';
+                if(await canLaunchUrl(url as Uri)){
+                  await launchUrl(url as Uri);
+                }else{
+                  throw 'Could not launch site';
+                }
+              },
+              child: Text('Click here to learn more')),
             ],
           ),
         ),

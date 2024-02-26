@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LifeInsurence extends StatelessWidget {
   const LifeInsurence({super.key});
@@ -29,7 +30,16 @@ class LifeInsurence extends StatelessWidget {
                     fontSize: 22,
                   ),
                 ),
-              )
+              ),
+              TextButton(onPressed: ()async{
+                const url = 'https://www.investopedia.com/terms/l/lifeinsurance.asp';
+                if(await canLaunchUrl(url as Uri)){
+                  await launchUrl(url as Uri);
+                }else{
+                  throw 'Could not launch site';
+                }
+              },
+              child: Text('Click here to learn more')),
             ],
           ),
         ),

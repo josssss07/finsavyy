@@ -17,6 +17,23 @@ class Stocks extends StatelessWidget {
         ),
 
       ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(26),
+                child: Text(
+                  'text will come here',
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

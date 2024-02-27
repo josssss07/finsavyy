@@ -1,45 +1,119 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class LifeInsurence extends StatelessWidget {
-  const LifeInsurence({super.key});
+class LifeInsurance extends StatefulWidget {
+  const LifeInsurance({super.key});
+
+  @override
+  State<LifeInsurance> createState() => _AutoInsuranceState();
+}
+
+class _AutoInsuranceState extends State<LifeInsurance> {
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw "Can not launch url";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 85, 145, 141),
-        title: Text(
+        title: const Text(
           'Life Insurance',
-          style: TextStyle(
-            color: Colors.white
-          ),
+          style: TextStyle(color: Colors.white),
         ),
-
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(26),
-                child: Text(
-                  'Life insurance is a contractual agreement between a life insurance company and a policy owner, wherein the insurer guarantees to pay a sum of money to named beneficiaries upon the death of the insured person, in exchange for premiums paid by the policyholder during their lifetime.\n\nVarious types of life insurance cater to different needs and preferences. A crucial decision is whether to opt for temporary or permanent life insurance, depending on the insured person\'s short- or long-term needs.\n\n- Term life insurance provides coverage for a specific number of years, typically 10, 20, or 30 years. It offers a balance between affordability and long-term financial security. Renewal options are available after the term ends, but premiums may increase yearly based on the insured\'s current age. Some policies allow conversion to permanent coverage, providing a more stable solution.\n\n- Whole life insurance is a type of permanent life insurance that lasts the lifetime of the insured. It accumulates cash value over time, which can be utilized for various purposes such as loans, cash withdrawals, or premium payments.\n\nBoth types of insurance offer distinct advantages and considerations, and the choice between them depends on individual circumstances and financial goals.',
-                  style: TextStyle(
-                    fontSize: 22,
+              const Image(image: AssetImage('assets/images/lifeins2.jpg')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26),
+                  child: Text(
+                    'Life insurance is essentially a contract between you and an insurance company. You pay regular amounts (called premiums), and in return, the insurance company promises to pay a sum of money (the death benefit) to the people you choose (your beneficiaries) after you die. If you pass away unexpectedly, life insurance can help your family cope financially. It can be used to replace your income, cover debts or mortgage payments, pay for your kids education, or handle final expenses like funeral costs.',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-              TextButton(onPressed: ()async{
-                const url = 'https://www.investopedia.com/terms/l/lifeinsurance.asp';
-                if(await canLaunchUrl(url as Uri)){
-                  await launchUrl(url as Uri);
-                }else{
-                  throw 'Could not launch site';
-                }
-              },
-              child: Text('Click here to learn more')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26.0),
+                  child: Text(
+                    'There are various types of life insurance.  Term life insurance covers you for a specific period, like 20 years. Whole life insurance lasts your entire lifetime.  The type and amount of coverage you choose depend on your individual situation and the financial protection you want to provide. Life insurance is about having a plan in place. Its knowing that even if you are no longer around, youve helped ease the financial burden on the people you care about most.',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 85, 145, 141),
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => Container(
+                      height: 200,
+                      width: 600,
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 85, 145, 141),
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () async {
+                              _launchURL(
+                                  "https://en.wikipedia.org/wiki/Life_insurance");
+                            },
+                            child: const Text(
+                              'Open URL',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              'Close Bottom Sheet',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Show Complete Info',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),

@@ -15,56 +15,51 @@ class InsurancePageRoutes extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 85, 145, 141),
         title: Text(
           'Insurance',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white
-          ),
+          style: TextStyle(fontSize: 20, color: Colors.white),
         ),
         centerTitle: true,
       ),
-      body:Padding(
+      body: Padding(
         padding: const EdgeInsets.all(12.8),
         child: ListView(
           children: [
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AutoInsurence()
-                  )
-                );
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AutoInsurance()));
               },
               leading: Icon(CupertinoIcons.car),
               title: Text('Auto Insurance '),
               subtitle: Text('Learn about Auto Insurance'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const  HealthInsurence()
-                  )
-                );
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HealthInsurance()));
               },
               leading: Icon(CupertinoIcons.plus),
               title: Text('Health Insurance'),
               subtitle: Text('Learn about Health Insurance'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomeInsurence()   
-                  )
-                );
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeInsurance()));
               },
               leading: Icon(CupertinoIcons.home),
               title: Text('Home Insurance'),
               subtitle: Text('Learn about home insurance'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LifeInsurence()   
-                  )
-                );
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LifeInsurance()));
               },
               leading: Icon(CupertinoIcons.person_2_alt),
               title: Text('Life Insurance'),
@@ -73,6 +68,7 @@ class InsurancePageRoutes extends StatelessWidget {
           ],
         ),
       ),
-    );;
+    );
+    ;
   }
 }

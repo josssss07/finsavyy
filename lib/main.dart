@@ -6,6 +6,7 @@ import 'package:managment/Screens/home.dart';
 import 'package:managment/Screens/statistics.dart';
 import 'package:managment/Screens/stockList.dart';
 import 'package:managment/login/login_page.dart';
+import 'package:managment/route.dart';
 import 'package:managment/widgets/bottomnavigationbar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -20,9 +21,13 @@ void main() async {
   //hive innit
   await Hive.initFlutter();
   //hive boxes innit
-  var userNameBox = await Hive.openBox('UsernameBox');
+  await Hive.openBox('appOpned');
+  await Hive.openBox('UsernameBox');
   Hive.registerAdapter(AdddataAdapter());
   await Hive.openBox<Add_data>('data');
+  int appLaunchedNumber = 0;
+  PageMover move = PageMover();
+  move.addBox(appLaunchedNumber);
   runApp(const MyApp());
 }
 
@@ -38,6 +43,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      //home: PageMover(),
       home: LoginPage(),
       //home: Bottom(),
     );

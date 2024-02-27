@@ -27,83 +27,85 @@ class LitracyPage extends StatelessWidget {
         title: Text('Future Proof Yourself, Start Today'),
         centerTitle: true,
       ),
-      body: Column(
-        children:<Widget> [
-      
-          GestureDetector(
-            onTap: (){wealthPages(context);},
-            child: Padding(
-              padding: const EdgeInsets.all(22.0),
-              child: Container(
-                height: 180,
-                width:3580,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 85, 145, 141),
-                  borderRadius: BorderRadius.circular(18)
-                ),
-                child: Center(
-                  child: Text(
-                    'Insurance',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white
-                    )
+      body: SingleChildScrollView(
+        child: Column(
+          children:<Widget> [
+        
+            GestureDetector(
+              onTap: (){wealthPages(context);},
+              child: Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Container(
+                  height: 180,
+                  width:3580,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 85, 145, 141),
+                    borderRadius: BorderRadius.circular(18)
                   ),
-                )
+                  child: Center(
+                    child: Text(
+                      'Insurance',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white
+                      )
+                    ),
+                  )
+                ),
               ),
             ),
-          ),
-
-          GestureDetector(
-            onTap: (){riskPages(context);},
-            child: Padding(
-              padding: const EdgeInsets.all(22.0),
-              child: Container(
-                height: 180,
-                width:3580,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 85, 145, 141),
-                  borderRadius: BorderRadius.circular(18)
-                ),
-                child: Center(
-                  child: Text(
-                    'Mutual Funds',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
-                    )
+        
+            GestureDetector(
+              onTap: (){riskPages(context);},
+              child: Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Container(
+                  height: 180,
+                  width:3580,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 85, 145, 141),
+                    borderRadius: BorderRadius.circular(18)
                   ),
-                )
+                  child: Center(
+                    child: Text(
+                      'Mutual Funds',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      )
+                    ),
+                  )
+                ),
               ),
             ),
-          ),
-
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: ((context) => Equity())));
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(22.0),
-              child: Container(
-                height: 180,
-                width:3580,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 85, 145, 141),
-                  borderRadius: BorderRadius.circular(18)
-                ),
-                child: Center(
-                  child: Text(
-                    'Equity Investments',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
-                    )
+        
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: ((context) => Equity())));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Container(
+                  height: 180,
+                  width:3580,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 85, 145, 141),
+                    borderRadius: BorderRadius.circular(18)
                   ),
-                )
+                  child: Center(
+                    child: Text(
+                      'Equity Investments',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      )
+                    ),
+                  )
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

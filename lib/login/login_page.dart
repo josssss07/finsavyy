@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
             const Text(
               "Empowering Financial Growth",
               style: TextStyle(
-                  fontSize: 30, color: Colors.black, fontWeight: FontWeight.w900),
+                  fontSize: 26, color: Colors.black, fontWeight: FontWeight.w900),
             ),
             const Text(
               "Bringing clarity to your financial roadmap.",

@@ -11,11 +11,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   late String userName;
   //username hive box
   final _myBox = Hive.box('UsernameBox');
-  String setUserName(){
+  String setUserName() {
     String userName = _myBox.get(1);
     return userName;
   }

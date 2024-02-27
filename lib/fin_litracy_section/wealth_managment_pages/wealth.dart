@@ -4,8 +4,6 @@
  * 
  */
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:managment/fin_litracy_section/mutual_funds/balanced_funds.dart';
@@ -25,73 +23,63 @@ class Wealth extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 85, 145, 141),
         title: Text(
           'Wealth Managment',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white
-          ),
+          style: TextStyle(fontSize: 20, color: Colors.white),
         ),
         centerTitle: true,
       ),
-      body:Padding(
+      body: Padding(
         padding: const EdgeInsets.all(12.8),
         child: ListView(
           children: [
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => BalancedFunds() 
-                  )
-                );
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => BlancedFunds()));
               },
               leading: Icon(CupertinoIcons.money_euro),
               title: Text('Balanced Funds'),
               subtitle: Text('Learn about Balanced Funds'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Bonds()   
-                  )
-                );
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Bonds()));
               },
               leading: Icon(CupertinoIcons.bold),
               title: Text('Bonds'),
               subtitle: Text('Learn about Bonds'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Equity()   
-                  )
-                );
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Equity()));
               },
               leading: Icon(CupertinoIcons.arrow_up_arrow_down),
               title: Text('Equity'),
               subtitle: Text('Learn about Equity'),
             ),
             ListTile(
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const IndexFunds()   
-                  )
-                );
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const IndexFunds()));
               },
               leading: Icon(CupertinoIcons.increase_indent),
               title: Text('Index funds'),
               subtitle: Text('Learn about index funds'),
             ),
-            ListTile( 
-              onTap: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MutualFunds()   
-                  )
-                );
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MutualFunds()));
               },
               leading: Icon(CupertinoIcons.tray_full),
               title: Text('Mutual Funds'),
               subtitle: Text('Learn about Mutual funds'),
             ),
-        
           ],
         ),
       ),

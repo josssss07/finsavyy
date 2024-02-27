@@ -1,46 +1,119 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeInsurence extends StatelessWidget {
-  const HomeInsurence({super.key});
+class HomeInsurance extends StatefulWidget {
+  const HomeInsurance({super.key});
+
+  @override
+  State<HomeInsurance> createState() => _AutoInsuranceState();
+}
+
+class _AutoInsuranceState extends State<HomeInsurance> {
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw "Can not launch url";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 85, 145, 141),
-        title: Text(
+        title: const Text(
           'Home Insurance',
-          style: TextStyle(
-            color: Colors.white
-          ),
+          style: TextStyle(color: Colors.white),
         ),
-
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(26),
-                child: Text(
-                  'Homeowners insurance is a form of property insurance that covers losses and damages to an individual\'s residence, along with furnishings and other assets in the home. Homeowners insurance also provides liability coverage against accidents in the home or on the property.\n\nA homeowners insurance policy usually covers four kinds of incidents on the insured property: interior damage, exterior damage, loss or damage of personal assets/belongings, and injury that occurs while on the property. When a claim is made on any of these incidents, the homeowner will be required to pay a deductible, which, in effect, is the out-of-pocket costs for the insured.\n\nThe insurance provider will usually depreciate the value of the covered property based on its age, use, condition, and useful life. The insurer deducts the depreciation value from the replacement cost to arrive at the actual cash value (ACV) that they will return to the insured. You can get a recoverable depreciation clause added to your contract that will pay you the depreciation value along with the replacement cost.\n\nFor example, say a claim is made to an insurer for interior water damage that has occurred in a home. The cost to bring the property back to livable conditions is estimated by a claims adjuster to be \$10,000. If the claim is approved, the homeowner is informed of the amount of their deductible, say \$4,000, according to the policy agreement entered into. The insurance company will issue a payment of the excess cost, in this case, \$6,000. The higher the deductible on an insurance contract, the lower the monthly or annual premium on a homeowners insurance policy.',
-                  style: TextStyle(
-                    fontSize: 22,
+              const Image(image: AssetImage('assets/images/homeins.jpeg')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26),
+                  child: Text(
+                    'Home insurance is like a financial shield for your home and the stuff you own inside it. If something unexpected happens, like a fire, storm damage, or theft, your insurance company will help you pay for repairs or replacements. Home insurance isnt just for major catastrophes. It can also help pay for things like injuries that happen on your property or even temporary housing costs if your home is temporarily uninhabitable due to a covered event. ',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-
-               TextButton(onPressed: ()async{
-                const url = 'https://www.investopedia.com/terms/h/homeowners-insurance.asp';
-                if(await canLaunchUrl(url as Uri)){
-                  await launchUrl(url as Uri);
-                }else{
-                  throw 'Could not launch site';
-                }
-              },
-              child: Text('Click here to learn more')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26.0),
+                  child: Text(
+                    'Unexpected accidents and damage can be incredibly costly. Home insurance helps prevent you from facing a huge financial burden all by yourself. This means you can rest easier knowing youve got protection in case of those "what if" moments. If you have a mortgage on your house, your lender will likely require you to have home insurance.  This protects their investment in your property.  Even without a mortgage, its a wise financial move to safeguard one of your most valuable assets.',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 85, 145, 141),
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => Container(
+                      height: 200,
+                      width: 600,
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 85, 145, 141),
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () async {
+                              _launchURL(
+                                  "https://en.wikipedia.org/wiki/Home_insurance");
+                            },
+                            child: const Text(
+                              'Open URL',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              'Close Bottom Sheet',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Show Complete Info',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),

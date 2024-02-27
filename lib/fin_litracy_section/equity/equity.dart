@@ -1,45 +1,119 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Equity extends StatelessWidget {
+class Equity extends StatefulWidget {
   const Equity({super.key});
+
+  @override
+  State<Equity> createState() => _AutoInsuranceState();
+}
+
+class _AutoInsuranceState extends State<Equity> {
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw "Can not launch url";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 85, 145, 141),
-        title: Text(
-          'Equity',
-          style: TextStyle(
-            color: Colors.white
-          ),
+        title: const Text(
+          'Index Funds',
+          style: TextStyle(color: Colors.white),
         ),
-
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(26),
-                child: Text(
-                  'An equity co-investment is a minority investment in a company made by investors alongside a private equity fund manager or venture capital (VC) firm. Equity co-investment enables other investors to participate in potentially highly profitable investments without paying the usual high fees charged by a private equity fund.\n\nEquity co-investment opportunities are typically restricted to large institutional investors who already have an existing relationship with the private equity fund manager and are often not available to smaller or retail investors.\n\nAccording to a study by Preqin, 80% of LPs reported better performance from equity co-investments compared to traditional fund structures. In a typical co-investment fund, the investor pays a fund sponsor or general partner (GP) with whom the investor has a well-defined private equity partnership. The partnership agreement outlines how the GP allocates capital and diversifies assets. Co-investments avoid typical limited partnership (LP) and general (GP) funds by investing directly in a company. KEY TAKEAWAYS\n\n-Equity co-investments are relatively smaller investments made in a company concurrent with larger investments by a private equity or VC fund.\n\n-Co-investors are typically charged a reduced fee, or no fee, for the investment and receive ownership privileges equal to the percentage of their investment.\n\n-They offer benefits to the larger funds in the form of increased capital and reduced risk while investors benefit by diversifying their portfolio and establishing relationships with senior private equity professionals',
-                  style: TextStyle(
-                    fontSize: 22,
+              const Image(image: AssetImage('assets/images/eq.jpeg')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26),
+                  child: Text(
+                    'Equity = Ownership  In the simplest terms, equity means ownership. If you have equity in a company, you own a piece of that company. This typically comes in the form of shares of stock.Building Ownership  There are a few ways to build equity. You can buy shares of a company on the stock market.  Or, if you work for a company that offers stock options, this grants you the right to buy shares in the future, potentially for a lower price. Homeownership is another example of equity – as you pay down your mortgage, you build equity in your home.',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-              TextButton(onPressed: ()async{
-                const url = 'https://www.investopedia.com/ask/answers/020415/what-difference-between-companys-equity-and-its-shareholders-equity.asp#:~:text=Key%20Takeaways-,Equity%20typically%20refers%20to%20the%20ownership%20of%20a%20public%20company,on%20the%20company\'s%20balance%20sheet.';
-                if(await canLaunchUrl(url as Uri)){
-                  await launchUrl(url as Uri);
-                }else{
-                  throw 'Could not launch site';
-                }
-              },
-              child: Text('Click here to learn more')),
+              const SizedBox(
+                height: 15,
+              ),
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(26.0),
+                  child: Text(
+                    'The value of your equity is tied to the value of what you own. If a company does well and its stock price increases, the value of your equity increases. Likewise, if the value of your home rises, your equity in that home also goes up.Equity is different from debt.  When you take out a loan (debt), you must pay it back with interest. With equity, you own a piece of the asset and may benefit from its appreciation. However, theres also the risk that the asset could lose value, lessening your equity.',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 85, 145, 141),
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => Container(
+                      height: 200,
+                      width: 600,
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 85, 145, 141),
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () async {
+                              _launchURL(
+                                  "https://en.wikipedia.org/wiki/Equity_(finance)");
+                            },
+                            child: const Text(
+                              'Open URL',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              'Close Bottom Sheet',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Show Complete Info',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),

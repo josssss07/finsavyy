@@ -3,11 +3,17 @@ import 'package:hive/hive.dart';
 import 'package:managment/login/user_data.dart/user.dart';
 import 'package:managment/widgets/bottomnavigationbar.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   //open hive box
   final _myBox = Hive.box('UsernameBox');
+
   //write to hive box(username)
   void addData(String userName) {
     _myBox.put(1, userName);
@@ -49,12 +55,18 @@ class LoginPage extends StatelessWidget {
           Padding(
               padding: EdgeInsets.all(18),
               child: FloatingActionButton(
-                backgroundColor: const Color.fromRGBO(173, 223, 255, 1.0),
+                backgroundColor: const Color.fromARGB(255, 85, 145, 141),
                 onPressed: () {
-                  String user = username.text;
-                  addData(user);
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (_) => Bottom()));
+                  if(username.text.isEmpty){
+                    setState(() {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text('please enter a name')));
+                    });
+                  }else{
+                    String user = username.text;
+                    addData(user);
+                    Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (_) => Bottom()));
+                  }
                 },
                 child: const Icon(
                   Icons.arrow_right,
